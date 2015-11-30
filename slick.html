@@ -1,0 +1,36 @@
+<head>
+  <title>slick</title>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-md-3 LeftNavigation">
+  <h1>{{> loginButtons}}</h1>
+  {{#if currentUser}}
+  {{#each users}}
+    <h2>{{> username}}</h2>
+  {{/each}}
+{{/if}}
+  </div>
+  <div class="col-xs-6">
+      {{#if currentUser}}
+    {{#each talking}}
+      {{> talk}}
+    {{/each}}
+  <form class="navbar-fixed-bottom new-task">
+  	<input type="text" name="text" autocomplete="off" placeholder="Add a word" class="form-control" maxlength="900"/>
+  </form>
+  {{/if}}
+</div>
+</div>
+
+</body>
+
+<template name="username">
+{{username}}<br>
+</template>
+
+<template name="talk">
+ <h2>{{sentBy.username}}: {{text}}</h2>
+ <sub>{{showOn}}</sub>
+</template>
