@@ -7,7 +7,7 @@ if (Meteor.isClient) {
   });
   Template.body.helpers({
     talking: function () {
-      return Talk.find({});
+      return Talk.find({},{sort: {date_created: -1}});
     }
   });
   Meteor.subscribe("allUsers");
